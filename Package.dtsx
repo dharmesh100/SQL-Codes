@@ -1,0 +1,1189 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/17/2022 11:56:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-Q479FR6"
+  DTS:CreatorName="DESKTOP-Q479FR6\aguch"
+  DTS:DTSID="{FC4B3522-4B9B-475C-ADE3-0ED86ADA7560}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{BC4D8860-7F2F-409A-A8E0-D4F9C1E00990}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ETL digram"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{6E7AA3B4-FD3E-49D8-8CDC-E0D1175C6135}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL digram">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\ETL digram\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D66D0B6D-F3FD-4EC6-9BDC-75C27FE02E65}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ETL digram\execute sl task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A0071CF7-86CF-4A71-B63C-05EFC2E3F590}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="execute sl task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\ETL digram\execute sl task\Date from NSW_public"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Date from NSW_public"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Date]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL digram\execute sl task\Date from NSW_public.Connections[OleDbConnection]"
+                      connectionManagerID="{2D1E8FED-2705-40AE-A544-D672F7925657}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[DESKTOP-Q479FR6_SQLEXPRESS.NSW_median]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output].Columns[Date_ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output].ExternalColumns[Date_ID]"
+                          lineageId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output].Columns[Date_ID]"
+                          name="Date_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output].Columns[Updated_year]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output].ExternalColumns[Updated_year]"
+                          length="10"
+                          lineageId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output].Columns[Updated_year]"
+                          name="Updated_year"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output].Columns[Updated_month]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output].ExternalColumns[Updated_month]"
+                          length="10"
+                          lineageId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output].Columns[Updated_month]"
+                          name="Updated_month"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output].ExternalColumns[Date_ID]"
+                          dataType="i4"
+                          name="Date_ID" />
+                        <externalMetadataColumn
+                          refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output].ExternalColumns[Updated_year]"
+                          dataType="wstr"
+                          length="10"
+                          name="Updated_year" />
+                        <externalMetadataColumn
+                          refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output].ExternalColumns[Updated_month]"
+                          dataType="wstr"
+                          length="10"
+                          name="Updated_month" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Error Output].Columns[Date_ID]"
+                          dataType="i4"
+                          lineageId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Error Output].Columns[Date_ID]"
+                          name="Date_ID" />
+                        <outputColumn
+                          refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Error Output].Columns[Updated_year]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Error Output].Columns[Updated_year]"
+                          name="Updated_year" />
+                        <outputColumn
+                          refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Error Output].Columns[Updated_month]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Error Output].Columns[Updated_month]"
+                          name="Updated_month" />
+                        <outputColumn
+                          refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ETL digram\execute sl task\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\ETL digram\execute sl task\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ETL digram\execute sl task\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\ETL digram\execute sl task\Derived Column.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ETL digram\execute sl task\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\ETL digram\execute sl task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL digram\execute sl task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL digram\execute sl task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL digram\execute sl task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL digram\execute sl task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ETL digram\execute sl task\Derived Column 1"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\ETL digram\execute sl task\Derived Column 1.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ETL digram\execute sl task\Derived Column 1.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\ETL digram\execute sl task\Derived Column 1.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ETL digram\execute sl task\Derived Column 1.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\ETL digram\execute sl task\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL digram\execute sl task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL digram\execute sl task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL digram\execute sl task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL digram\execute sl task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ETL digram\execute sl task\Slowly Changing Dimension"
+                  componentClassID="Microsoft.SCD"
+                  contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                  description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+                  name="Slowly Changing Dimension"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SELECT statement used to create a schema rowset."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                      name="CurrentRowWhere"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                      name="UpdateChangingAttributeHistory">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                      name="FailOnFixedAttributeChange">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the column name for the inferred member."
+                      name="InferredMemberIndicator"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether inferred member updates are detected."
+                      name="EnableInferredMember">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                      name="FailOnLookupFailure">false</property>
+                    <property
+                      dataType="System.UInt32"
+                      description="Specifies that all rows in the input are new or the transformation detects the change type."
+                      name="IncomingRowChangeType"
+                      typeConverter="IncomingRowChangeType">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Connections[LookupConnection]"
+                      description="Defines the connection to use for lookups in the dimension table"
+                      name="LookupConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                      name="Slowly Changing Dimension Input">
+                      <externalMetadataColumns
+                        isUsed="True" />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                      description="Unchanged rows"
+                      exclusionGroup="1"
+                      name="Unchanged Output"
+                      synchronousInputId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Outputs[New Output]"
+                      description="New rows"
+                      exclusionGroup="1"
+                      name="New Output"
+                      synchronousInputId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                      description="Rows with changes in columns tagged FixedAttribute"
+                      exclusionGroup="1"
+                      name="Fixed Attribute Output"
+                      synchronousInputId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                      description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                      exclusionGroup="1"
+                      name="Changing Attribute Updates Output"
+                      synchronousInputId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                      description="HistoricalAttribute (Type 2) changes result in these new rows"
+                      exclusionGroup="2"
+                      name="Historical Attribute Inserts Output"
+                      synchronousInputId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                      description="Information to update unpopulated initial dimension row"
+                      exclusionGroup="1"
+                      name="Inferred Member Updates Output"
+                      synchronousInputId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\ETL digram\execute sl task.Paths[Derived Column Output]"
+                  endId="Package\ETL digram\execute sl task\Derived Column 1.Inputs[Derived Column Input]"
+                  name="Derived Column Output"
+                  startId="Package\ETL digram\execute sl task\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\ETL digram\execute sl task.Paths[Derived Column Output1]"
+                  endId="Package\ETL digram\execute sl task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Derived Column Output"
+                  startId="Package\ETL digram\execute sl task\Derived Column 1.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\ETL digram\execute sl task.Paths[OLE DB Source Output]"
+                  endId="Package\ETL digram\execute sl task\Derived Column.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\ETL digram\execute sl task\Date from NSW_public.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ETL digram\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F156D0F8-AF82-4BC6-A488-CC20B9DCA195}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ETL digram.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{5C2724B4-6E0F-4129-9A27-DC8B63C61EFD}"
+          DTS:From="Package\ETL digram\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\ETL digram\execute sl task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ETL digram.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{91CE5F4E-0714-4E16-A13E-CB67020450DF}"
+          DTS:From="Package\ETL digram\execute sl task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\ETL digram\Data Flow Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fact property median"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{1DD0F330-D549-4C83-BEA1-ADEE80955B6C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fact property median">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Fact property median\ETL to fact"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{9A62E7D9-A6A9-4524-BFE6-B41F35FB0F53}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL to fact"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fact property median\ETL to LOAD DB"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{BE214E24-6D30-4825-AD0C-7382264B824E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL to LOAD DB"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fact property median\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ECA53539-6236-498D-AB9F-229B8F40486C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fact property median\Execute SQL Task 1"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B549CCBF-A2D6-4F87-A48E-A18A08963103}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task 1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fact property median.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{90C3412C-1703-4199-A9C6-2D42EEA25ADA}"
+          DTS:From="Package\Fact property median\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Fact property median\Execute SQL Task 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fact property median.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{003EEFCF-6AF4-4895-92E0-78A4C1E94BE5}"
+          DTS:From="Package\Fact property median\Execute SQL Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Fact property median\ETL to LOAD DB" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\subrub ETL"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{81E02F1C-F29C-41A7-B5DC-82379DAF6122}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="subrub ETL">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\subrub ETL\ETL to DW DB"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E5DCEB37-55A0-4896-B43E-DCB8029F0283}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL to DW DB"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\subrub ETL\ETL to LOAD DB"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{FC7265CC-87E7-4962-8FFE-C8D47CD206CF}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL to LOAD DB"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\subrub ETL\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{93127DC5-E745-4ED9-B142-C74DC56E62C6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\subrub ETL\Execute SQL Task 1"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{17805E03-92A4-443A-B904-62D623C2F385}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task 1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\subrub ETL.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{0C6C0C24-86AD-4A5F-9699-8C069D08518C}"
+          DTS:From="Package\subrub ETL\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\subrub ETL\Execute SQL Task 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\subrub ETL.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{E16D5EA3-737A-4B40-AE88-E25682BDAF81}"
+          DTS:From="Package\subrub ETL\Execute SQL Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\subrub ETL\ETL to LOAD DB" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\subrub ETL.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{0695FB5A-D95D-4A46-9C3C-B675926605C8}"
+          DTS:From="Package\subrub ETL\ETL to LOAD DB"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\subrub ETL\ETL to DW DB" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{67A8F277-0322-431D-B8D3-272C77B50542}"
+      DTS:From="Package\ETL digram"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\subrub ETL" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{686FBEDC-1EEB-450A-A381-386098296D33}"
+      DTS:From="Package\subrub ETL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Fact property median" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\ETL digram\execute sl task"
+          TopLeft="19.3333300219643,103.600001529058" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\ETL digram\Execute SQL Task"
+          TopLeft="5.5,20.4000008678436" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\ETL digram\Data Flow Task"
+          TopLeft="35.1666627261376,200.666668967141" />
+        <EdgeLayout
+          Id="Package\ETL digram.PrecedenceConstraints[Constraint]"
+          TopLeft="90.4166650109821,62.0000008678436">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.6000006612142"
+              Start="0,0"
+              End="0,34.1000006612142">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.1000006612142" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL digram.PrecedenceConstraints[Constraint 1]"
+          TopLeft="92.9333300219643,145.200001529058">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.4333327041734,55.4666674380832"
+              Start="0,0"
+              End="17.4333327041734,47.9666674380832">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7333337190416" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7333337190416"
+                    Point2="0,27.7333337190416"
+                    Point3="4,27.7333337190416" />
+                  <mssgle:LineSegment
+                    End="13.4333327041734,27.7333337190416" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.4333327041734,27.7333337190416"
+                    Point2="17.4333327041734,27.7333337190416"
+                    Point3="17.4333327041734,31.7333337190416" />
+                  <mssgle:LineSegment
+                    End="17.4333327041734,47.9666674380832" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="256.8,444"
+          Size="256.8,487.2"
+          Id="Package\ETL digram"
+          TopLeft="53.3333312140572,45.9333336983787" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\subrub ETL\Execute SQL Task"
+          TopLeft="28.1333165115786,24.0000008265178" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\subrub ETL\Execute SQL Task 1"
+          TopLeft="44.7999825159716,102.000001446406" />
+        <EdgeLayout
+          Id="Package\subrub ETL.PrecedenceConstraints[Constraint]"
+          TopLeft="110.533316511579,65.6000008265178">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.066666004393,36.4000006198884"
+              Start="0,0"
+              End="21.066666004393,28.9000006198884">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.2000003099442" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.2000003099442"
+                    Point2="0,18.2000003099442"
+                    Point3="4,18.2000003099442" />
+                  <mssgle:LineSegment
+                    End="17.066666004393,18.2000003099442" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.066666004393,18.2000003099442"
+                    Point2="21.066666004393,18.2000003099442"
+                    Point3="21.066666004393,22.2000003099442" />
+                  <mssgle:LineSegment
+                    End="21.066666004393,28.9000006198884" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\subrub ETL\ETL to LOAD DB"
+          TopLeft="61.4666485203645,175.666668698523" />
+        <EdgeLayout
+          Id="Package\subrub ETL.PrecedenceConstraints[Constraint 1]"
+          TopLeft="131.599982515972,143.600001446406">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.66666600439282,32.0666672521167"
+              Start="0,0"
+              End="8.66666600439282,24.5666672521167">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.0333336260584" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.0333336260584"
+                    Point2="0,16.0333336260584"
+                    Point3="4,16.0333336260584" />
+                  <mssgle:LineSegment
+                    End="4.66666600439282,16.0333336260584" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.66666600439282,16.0333336260584"
+                    Point2="8.66666600439282,16.0333336260584"
+                    Point3="8.66666600439282,20.0333336260584" />
+                  <mssgle:LineSegment
+                    End="8.66666600439282,24.5666672521167" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\subrub ETL\ETL to DW DB"
+          TopLeft="37.2999828139949,245.000002582868" />
+        <EdgeLayout
+          Id="Package\subrub ETL.PrecedenceConstraints[Constraint 2]"
+          TopLeft="140.266648520364,217.266668698523">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-29.7666657063696,27.7333338843452"
+              Start="0,0"
+              End="-29.7666657063696,20.2333338843452">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.86666694217259" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.86666694217259"
+                    Point2="0,13.8666669421726"
+                    Point3="-4,13.8666669421726" />
+                  <mssgle:LineSegment
+                    End="-25.7666657063696,13.8666669421726" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.7666657063696,13.8666669421726"
+                    Point2="-29.7666657063696,13.8666669421726"
+                    Point3="-29.7666657063696,17.8666669421726" />
+                  <mssgle:LineSegment
+                    End="-29.7666657063696,20.2333338843452" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="252.8,341.6"
+          Size="252.8,384.8"
+          Id="Package\subrub ETL"
+          TopLeft="343.333319690493,161.200001281102" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="310.133331214057,289.533333698379">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.1999884764358,64.0666675827237"
+              Start="0,0"
+              End="25.6999884764358,64.0666675827237">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="12.5999942382179,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.5999942382179,0"
+                    Point2="16.5999942382179,0"
+                    Point3="16.5999942382179,4" />
+                  <mssgle:LineSegment
+                    End="16.5999942382179,60.0666675827237" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.5999942382179,60.0666675827237"
+                    Point2="16.5999942382179,64.0666675827237"
+                    Point3="20.5999942382179,64.0666675827237" />
+                  <mssgle:LineSegment
+                    End="25.6999884764358,64.0666675827237" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Fact property median\Execute SQL Task"
+          TopLeft="11.8999714891128,22.2666681406233" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Fact property median\Execute SQL Task 1"
+          TopLeft="31.8999706943844,103.733335454729" />
+        <EdgeLayout
+          Id="Package\Fact property median.PrecedenceConstraints[Constraint]"
+          TopLeft="94.2999714891128,63.8666681406233">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.3999992052716,39.8666673141057"
+              Start="0,0"
+              End="24.3999992052716,32.3666673141057">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.9333336570528" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.9333336570528"
+                    Point2="0,19.9333336570528"
+                    Point3="4,19.9333336570528" />
+                  <mssgle:LineSegment
+                    End="20.3999992052716,19.9333336570528" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.3999992052716,19.9333336570528"
+                    Point2="24.3999992052716,19.9333336570528"
+                    Point3="24.3999992052716,23.9333336570528" />
+                  <mssgle:LineSegment
+                    End="24.3999992052716,32.3666673141057" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Fact property median\ETL to LOAD DB"
+          TopLeft="57.7333030011931,193.866669504378" />
+        <EdgeLayout
+          Id="Package\Fact property median.PrecedenceConstraints[Constraint 1]"
+          TopLeft="118.699970694384,145.333335454729">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.8333323068088,48.5333340496487"
+              Start="0,0"
+              End="17.8333323068088,41.0333340496487">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2666670248244" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2666670248244"
+                    Point2="0,24.2666670248244"
+                    Point3="4,24.2666670248244" />
+                  <mssgle:LineSegment
+                    End="13.8333323068088,24.2666670248244" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.8333323068088,24.2666670248244"
+                    Point2="17.8333323068088,24.2666670248244"
+                    Point3="17.8333323068088,28.2666670248244" />
+                  <mssgle:LineSegment
+                    End="17.8333323068088,41.0333340496487" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="128.8,41.6"
+          Id="Package\Fact property median\ETL to fact"
+          TopLeft="75.199969005586,270.733336839146" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="256,367.2"
+          Size="256,410.4"
+          Id="Package\Fact property median"
+          TopLeft="704.999971985818,126.800000950495" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="596.133319690493,353.600001281102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.866652295325,-21.600000330607"
+              Start="0,0"
+              End="101.366652295325,-21.600000330607">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="50.4333261476625,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.4333261476625,0"
+                    Point2="54.4333261476625,0"
+                    Point3="54.4333261476625,-4" />
+                  <mssgle:LineSegment
+                    End="54.4333261476625,-17.600000330607" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.4333261476625,-17.600000330607"
+                    Point2="54.4333261476625,-21.600000330607"
+                    Point3="58.4333261476625,-21.600000330607" />
+                  <mssgle:LineSegment
+                    End="101.366652295325,-21.600000330607" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ETL digram\execute sl task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\ETL digram\execute sl task\Date from NSW_public"
+          TopLeft="46.6666648123,32.9333335950639" />
+        <NodeLayout
+          Size="152.8,42.4"
+          Id="Package\ETL digram\execute sl task\Derived Column"
+          TopLeft="120.833328531848,170.7333346902" />
+        <EdgeLayout
+          Id="Package\ETL digram\execute sl task.Paths[OLE DB Source Output]"
+          TopLeft="138.6666648123,74.5333335950639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.5666637195482,96.200001095136"
+              Start="0,0"
+              End="58.5666637195482,88.700001095136">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.100000547568" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.100000547568"
+                    Point2="0,48.100000547568"
+                    Point3="4,48.100000547568" />
+                  <mssgle:LineSegment
+                    End="54.5666637195482,48.100000547568" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.5666637195482,48.100000547568"
+                    Point2="58.5666637195482,48.100000547568"
+                    Point3="58.5666637195482,52.100000547568" />
+                  <mssgle:LineSegment
+                    End="58.5666637195482,88.700001095136" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\ETL digram\execute sl task\Derived Column 1"
+          TopLeft="179.166659547223,303.33333574401" />
+        <EdgeLayout
+          Id="Package\ETL digram\execute sl task.Paths[Derived Column Output]"
+          TopLeft="197.233328531848,213.1333346902">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62.7333310153751,90.2000010538101"
+              Start="0,0"
+              End="62.7333310153751,82.7000010538101">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.100000526905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.100000526905"
+                    Point2="0,45.100000526905"
+                    Point3="4,45.100000526905" />
+                  <mssgle:LineSegment
+                    End="58.7333310153751,45.100000526905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.7333310153751,45.100000526905"
+                    Point2="62.7333310153751,45.100000526905"
+                    Point3="62.7333310153751,49.100000526905" />
+                  <mssgle:LineSegment
+                    End="62.7333310153751,82.7000010538101" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\ETL digram\execute sl task\Slowly Changing Dimension"
+          TopLeft="179.166659547223,406.466669896974" />
+        <EdgeLayout
+          Id="Package\ETL digram\execute sl task.Paths[Derived Column Output1]"
+          TopLeft="259.966659547223,344.93333574401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.2,61.5333341529636"
+              Start="0,0"
+              End="23.2,54.0333341529636">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7666670764818" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.7666670764818"
+                    Point2="0,30.7666670764818"
+                    Point3="4,30.7666670764818" />
+                  <mssgle:LineSegment
+                    End="19.2,30.7666670764818" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.2,30.7666670764818"
+                    Point2="23.2,30.7666670764818"
+                    Point3="23.2,34.7666670764818" />
+                  <mssgle:LineSegment
+                    End="23.2,54.0333341529636" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL digram\execute sl task\Date from NSW_public">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

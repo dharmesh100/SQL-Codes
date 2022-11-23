@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-Q479FR6_SQLEXPRESS.NSW_public_schools"
+  DTS:DTSID="{C7B0313B-46B5-4990-BCA9-2053D430BD2F}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-Q479FR6\SQLEXPRESS;Initial Catalog=NSW_public_schools;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-SSIS practice-{C7B0313B-46B5-4990-BCA9-2053D430BD2F}DESKTOP-Q479FR6\SQLEXPRESS.NSW_public_schools;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
